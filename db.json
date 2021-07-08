@@ -1,0 +1,42 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Vault failure",
+      "attention": true,
+      "date": "11-11-2020",
+      "tech": "Mike Smith"
+    },
+    {
+      "id": 2,
+      "message": "Update documents",
+      "attention": false,
+      "date": "13-11-2020",
+      "tech": "Virat Kohli"
+    },
+    {
+      "id": 3,
+      "message": "Attend call",
+      "attention": true,
+      "date": "12-11-2020",
+      "tech": "Piyush Chawla"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstname": "Piyush",
+      "lastname": "Chawla"
+    },
+    {
+      "id": 2,
+      "firstname": "Virat",
+      "lastname": "Kohli"
+    },
+    {
+      "id": 3,
+      "firstname": "Mike",
+      "lastname": "Smith"
+    }
+  ]
+}
