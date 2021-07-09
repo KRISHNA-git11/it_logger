@@ -1,18 +1,21 @@
 import React,{useState} from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { addTech } from '../../actions/TechActions';
+import { connect } from 'react-redux';
 
-const AddTechModal = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+const AddTechModal = ({addTech}) => {
+    const [firstname, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
 
     const onSubmit = () => {
-        if(firstName === '' || lastName === ''){
+        if(firstname === '' || lastname === ''){
             M.toast({html:"Please enter a first name and a last name"})
         }
         else{
-            console.log(firstName,lastName)
+            addTech({firstname,lastname})
             setFirstName('')
             setLastName('')
+            M.toast({html:'Tech added successfully'})
        }
     }
 
@@ -22,16 +25,16 @@ const AddTechModal = () => {
                 <h4>Enter Technician Details</h4><br></br>
                 <div className="row">
                     <div className="input-field">
-                        <input type='text' name='firstName' value={firstName} 
+                        <input type='text' name='firstname' value={firstname} 
                                 onChange={e=>setFirstName(e.target.value)} />
-                        <label htmlFor="firstName" className="active">First Name</label>
+                        <label htmlFor="firstname" className="active">First Name</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field">
-                        <input type='text' name='lastName' value={lastName} 
+                        <input type='text' name='lastname' value={lastname} 
                                 onChange={e=>setLastName(e.target.value)} />
-                        <label htmlFor="lastName" className="active">Last Name</label>
+                        <label htmlFor="lastname" className="active">Last Name</label>
                     </div>
                 </div>
             </div>
@@ -47,4 +50,4 @@ const modalStyle ={
 }
 
 
-export default AddTechModal
+export default connect(null,{addTech}) (AddTechModal)

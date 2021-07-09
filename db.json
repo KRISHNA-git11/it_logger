@@ -2,24 +2,17 @@
   "logs": [
     {
       "id": 1,
-      "message": "Vault failure",
-      "attention": true,
-      "date": "11-11-2020",
-      "tech": "Mike Smith"
-    },
-    {
-      "id": 2,
-      "message": "Update documents",
+      "message": "Debug done",
       "attention": false,
-      "date": "01-11-2020",
-      "tech": "Virat Kohli"
+      "tech": "Virat Kohli",
+      "date": "2021-07-09T11:43:27.648Z"
     },
     {
-      "id": 3,
-      "message": "Attend call",
+      "id": 5,
+      "message": "Create Log",
       "attention": true,
-      "date": "12-11-2020",
-      "tech": "Piyush Chawla"
+      "tech": "Dheeraj Sanghwan",
+      "date": "2021-07-09T12:00:14.283Z"
     }
   ],
   "techs": [

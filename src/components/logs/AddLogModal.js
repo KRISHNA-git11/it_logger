@@ -1,7 +1,10 @@
 import React,{useState} from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { connect } from 'react-redux';
+import { addLogs } from '../../actions/LogActions';
+import TechSelectOptions from '../techs/TechSelectOptions';
 
-const AddLogModal = () => {
+const AddLogModal = ({addLogs}) => {
     const [message, setMessage] = useState('')
     const [attention, setAttention] = useState(false)
     const [tech, setTech] = useState('')
@@ -11,8 +14,18 @@ const AddLogModal = () => {
             M.toast({html:"Please enter a message and a tech"})
         }
         else{
-            console.log(message,tech,attention)
-       }
+            const newLog = {
+                message,
+                attention,
+                tech,
+                date: new Date()
+            }
+            addLogs(newLog);
+            M.toast({html:"Added a new log"})
+            setMessage('');
+            setAttention(false);
+            setTech('')
+        }
     }
 
     return (
@@ -31,9 +44,7 @@ const AddLogModal = () => {
                         <select name='tech' value={tech} className='browser-default' 
                                 onChange={e => setTech(e.target.value)}>
                             <option value="" disabled>Select Technician</option>
-                            <option value='Piyush Chawla'>Piyush Chawla</option>
-                            <option value='Virat Kohli'>Virat Kohli</option>
-                            <option value='Mike Smith'>Mike Smith</option>
+                            <TechSelectOptions/>
                         </select>
                     </div>
                 </div>
@@ -48,7 +59,7 @@ const AddLogModal = () => {
                 </div>
             </div>
             <div className="modal-fotter" style={{paddingLeft:"20px"}}>
-                <a href="#!" onClick={onSubmit} className="modal-close waves-effect blue waves-light btn">Enter</a>
+                <a href="/" onClick={onSubmit} className="modal-close waves-effect blue waves-light btn">Enter</a>
             </div>
         </div>
     )
@@ -59,4 +70,4 @@ const modalStyle={
     height:'90%'
 }
 
-export default AddLogModal
+export default connect(null,{addLogs})(AddLogModal)
