@@ -4,7 +4,7 @@ import { searchLogs } from '../../actions/LogActions'
 
 const SearchBar = ({searchLogs}) => {
     const text = useRef('')
-    const onChange = () => {
+    const onChange = () => {    
         searchLogs(text.current.value)
     }
 
